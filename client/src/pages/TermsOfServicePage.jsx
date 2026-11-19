@@ -107,7 +107,7 @@ const sections = [
       <>
         <p>For questions about these terms, contact:</p>
         <div className="rounded-xl border border-gray-800 bg-black/30 p-4">
-          <p className="text-gray-200 font-semibold">{contactInfo.name}</p>
+          <p className="text-gray-200 font-semibold">{contactInfo.companyName}</p>
           <p>
             Email:{' '}
             <a href={`mailto:${contactInfo.businessEmail}`} className="text-primary-400 hover:underline">
@@ -134,7 +134,6 @@ export default function TermsOfServicePage() {
         description:
           'Websoftify terms of service — rules and conditions for using our website and software development services.',
         keywords: 'websoftify terms of service, service agreement',
-        canonical: 'https://websoftify.com/terms-of-service',
       }}
       badge="Legal"
       title="Terms of"

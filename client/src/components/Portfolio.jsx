@@ -3,6 +3,33 @@ import { HiArrowRight, HiExternalLink } from 'react-icons/hi';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { getServiceByTitle } from '../data/services';
 import { titleToSlug } from '../utils/slugify';
+import ServiceIllustration from './ServiceIllustration';
+
+/** Screenshot of the project, or an illustration of its service type when there is none. */
+function ProjectShot({ project, serviceSlug }) {
+  return (
+    <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={`${project.company} — ${project.title}`}
+          width="800"
+          height="500"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      ) : (
+        <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-primary-900/40 via-gray-900 to-black">
+          <ServiceIllustration slug={serviceSlug} variant="card" title={project.title} />
+          <span className="text-xs font-medium uppercase tracking-[0.15em] text-gray-500">
+            {project.service}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function ProjectCard({ project, index, compact = false }) {
   const { ref, visible } = useScrollAnimation(0.08);
@@ -16,6 +43,7 @@ function ProjectCard({ project, index, compact = false }) {
       className={`portfolio-card group anim-fade-up ${visible ? 'anim-visible' : 'anim-hidden'}`}
       style={{ transitionDelay: `${(index % 3) * 100}ms` }}
     >
+      <ProjectShot project={project} serviceSlug={serviceSlug} />
       <div className="portfolio-card-top">
         {Icon && (
           <div className="portfolio-card-icon icon-bw">

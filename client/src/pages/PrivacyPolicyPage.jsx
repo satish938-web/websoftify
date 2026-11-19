@@ -98,7 +98,7 @@ const sections = [
       <>
         <p>For privacy-related questions, contact:</p>
         <div className="rounded-xl border border-gray-800 bg-black/30 p-4">
-          <p className="text-gray-200 font-semibold">{contactInfo.name}</p>
+          <p className="text-gray-200 font-semibold">{contactInfo.companyName}</p>
           <p>
             Email:{' '}
             <a href={`mailto:${contactInfo.businessEmail}`} className="text-primary-400 hover:underline">
@@ -125,7 +125,6 @@ export default function PrivacyPolicyPage() {
         description:
           "Read Websoftify's privacy policy — how we collect, use, and protect your personal information.",
         keywords: 'websoftify privacy policy, data protection',
-        canonical: 'https://websoftify.com/privacy-policy',
       }}
       badge="Legal"
       title="Privacy"

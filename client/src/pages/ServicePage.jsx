@@ -8,6 +8,7 @@ import ServiceIllustration from '../components/ServiceIllustration';
 import { DecorativeBlob, SectionIllustration } from '../components/SectionIllustrations';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { getServiceBySlug, servicePages } from '../data/servicePages';
+import { testimonials } from '../data/testimonials';
 
 function AnimatedSection({ children, className = '', anim = 'fade-up', delay = 0 }) {
   const { ref, visible } = useScrollAnimation();
@@ -255,7 +256,6 @@ export default function ServicePage() {
         title={page.seo.title}
         description={page.seo.description}
         keywords={page.seo.keywords}
-        canonical={`https://websoftify.com/services/${page.slug}`}
       />
       <Navbar />
       <main>
@@ -463,10 +463,10 @@ export default function ServicePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection anim="fade-up" className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4 theme-heading">What Our Clients Say</h2>
-              <p className="theme-muted">Real feedback from businesses who used our {page.title.toLowerCase()}</p>
+              <p className="theme-muted">Real feedback from businesses we have worked with</p>
             </AnimatedSection>
             <div className="grid md:grid-cols-3 gap-6">
-              {page.testimonials.map((t, i) => (
+              {testimonials.map((t, i) => (
                 <AnimatedSection key={t.name} anim="fade-up" delay={i * 150}>
                   <div className="p-6 bg-gray-900 rounded-2xl border border-gray-800 h-full flex flex-col">
                     <div className="flex gap-1 mb-4">

@@ -1,3 +1,5 @@
+import { liveProjectCount, clientCount } from './siteStats';
+
 const categoryMap = {
   'Custom Software Development': 'development',
   'Web Application Development': 'development',
@@ -160,7 +162,7 @@ const faqTemplates = (title) => [
   },
   {
     q: `Do you provide support after launch?`,
-    a: `Yes! Websoftify offers ongoing maintenance, updates, bug fixes, and 24/7 support packages so your solution keeps running smoothly after delivery.`,
+    a: `Yes! Websoftify offers ongoing maintenance, updates, bug fixes, and support packages so your solution keeps running smoothly after delivery.`,
   },
   {
     q: `Can you integrate with our existing systems?`,
@@ -168,7 +170,7 @@ const faqTemplates = (title) => [
   },
   {
     q: `Why choose Websoftify for ${title}?`,
-    a: `Websoftify combines technical expertise, affordable pricing, fast delivery, and dedicated support. We've delivered 100+ projects for 50+ happy clients across India and globally.`,
+    a: `Websoftify combines technical expertise, affordable pricing, fast delivery, and dedicated support. We've delivered ${liveProjectCount} live projects for ${clientCount} businesses — you can see them all on our Work page.`,
   },
   {
     q: `Do you work with startups and small businesses?`,
@@ -183,7 +185,7 @@ export function buildRichContent(title) {
 
   return {
     overview: [
-      `At Websoftify, we specialize in ${lower} that helps businesses grow faster, work smarter, and serve customers better. With years of experience and a team of skilled developers, designers, and strategists, we deliver solutions that are built to last.`,
+      `At Websoftify, we specialize in ${lower} that helps businesses grow faster, work smarter, and serve customers better. We deliver solutions that are built to last.`,
       `Whether you're a startup launching your first product or an established company looking to upgrade your systems, our ${lower} service is designed around your goals. We don't believe in cookie-cutter templates — every project is custom-built to match your workflow, brand, and budget.`,
       `From initial consultation to post-launch support, Websoftify handles everything. Our agile process keeps you involved at every stage, with regular updates, demos, and feedback loops. The result? A solution that actually works for your business — not just looks good on paper.`,
     ],
@@ -195,26 +197,6 @@ export function buildRichContent(title) {
     deliverables: data.deliverableTemplates,
     industries: data.industries,
     faqs: faqTemplates(title),
-    testimonials: [
-      {
-        name: 'Rahul Sharma',
-        role: 'CEO, TechStart India',
-        text: `Websoftify delivered our ${lower} project on time and within budget. The team was professional, responsive, and truly understood our requirements. Highly recommended!`,
-        rating: 5,
-      },
-      {
-        name: 'Priya Mehta',
-        role: 'Founder, ShopEasy',
-        text: `We hired Websoftify for ${lower} and the results exceeded our expectations. Our business grew 40% within 3 months of launch. Great team to work with.`,
-        rating: 5,
-      },
-      {
-        name: 'Amit Kumar',
-        role: 'Director, GlobalBPO',
-        text: `Professional, reliable, and skilled — Websoftify is our go-to partner for all software needs. Their ${lower} service is top-notch.`,
-        rating: 5,
-      },
-    ],
     whyPoints: [
       `${title} tailored specifically to your business model`,
       'Agile development with weekly progress updates',
@@ -238,20 +220,20 @@ export function buildFeatures(title) {
       desc: 'Built to grow with your business. Handle 10 users or 10 million without rebuilding from scratch.',
     },
     {
-      title: 'Expert Development Team',
-      desc: 'Skilled developers with 5+ years experience in React, Node.js, AI, CRM, and modern technologies.',
+      title: 'Modern Tech Stack',
+      desc: 'Built with React, Node.js, MongoDB, and proven tools — the same stack behind our live client projects.',
     },
     {
       title: 'Fast Turnaround',
-      desc: 'Agile sprints with regular demos. Most projects delivered 30% faster than industry average.',
+      desc: 'Agile sprints with regular demos, so you see real progress every week.',
     },
     {
-      title: '24/7 Support & Maintenance',
-      desc: 'Round-the-clock technical support, bug fixes, updates, and monitoring after launch.',
+      title: 'Support & Maintenance',
+      desc: 'Bug fixes, updates, and monitoring after launch, with a support plan that fits your needs.',
     },
     {
-      title: 'Best Price Guarantee',
-      desc: 'Premium quality at competitive Indian pricing. Get enterprise-grade solutions at startup-friendly rates.',
+      title: 'Transparent Pricing',
+      desc: 'Clear quotes at competitive Indian pricing, with no hidden charges.',
     },
     {
       title: 'SEO & Performance Optimized',

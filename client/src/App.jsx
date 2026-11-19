@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import RouteAnalytics from './components/RouteAnalytics';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Home from './pages/Home';
 import ServicesList from './pages/ServicesList';
 import ServicePage from './pages/ServicePage';
@@ -27,6 +29,9 @@ export default function App() {
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         </Routes>
       </div>
+      <FloatingWhatsApp />
+      {/* After the pages, so the page title is already set when the page view is sent */}
+      <RouteAnalytics />
     </BrowserRouter>
   );
 }

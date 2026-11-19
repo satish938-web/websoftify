@@ -1,6 +1,7 @@
 import { titleToSlug } from '../utils/slugify';
 import { services } from './services';
 import { buildRichContent, buildFeatures } from './serviceRichContent';
+import { siteStats } from './siteStats';
 
 const brandDark = {
   accent: 'text-primary-500',
@@ -125,15 +126,6 @@ export const layoutThemes = [
   },
 ];
 
-const featureTemplates = [
-  'Custom-built for your business needs',
-  'Scalable and future-proof architecture',
-  'Expert team with years of experience',
-  'Fast delivery with quality assurance',
-  '24/7 support and maintenance',
-  'Affordable and transparent pricing',
-];
-
 const processSteps = [
   { step: '01', title: 'Discovery', desc: 'We understand your goals, requirements, and target audience.' },
   { step: '02', title: 'Planning', desc: 'Strategy, wireframes, and roadmap for your project.' },
@@ -194,7 +186,7 @@ const serviceContent = {
   },
   'Maintenance & Support': {
     tagline: 'Keep your software running flawlessly',
-    intro: 'Proactive maintenance, security updates, bug fixes, backups, and 24/7 support so your website and apps never miss a beat.',
+    intro: 'Proactive maintenance, security updates, bug fixes, backups, and ongoing support so your website and apps never miss a beat.',
     keywords: 'website maintenance, software support, IT maintenance services',
   },
   'Micro-GCC Teams': {
@@ -329,17 +321,11 @@ export const servicePages = allServiceTitles.map((title, index) => {
     deliverables: rich.deliverables,
     industries: rich.industries,
     faqs: rich.faqs,
-    testimonials: rich.testimonials,
     whyPoints: rich.whyPoints,
     features: buildFeatures(title),
     benefits: rich.whyPoints.slice(0, 6),
     process: processSteps,
-    stats: [
-      { value: '100+', label: 'Projects Done' },
-      { value: '50+', label: 'Happy Clients' },
-      { value: '24/7', label: 'Support' },
-      { value: '5★', label: 'Rated Service' },
-    ],
+    stats: siteStats,
   };
 });
 

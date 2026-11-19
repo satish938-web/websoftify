@@ -245,10 +245,10 @@ export const categoryIllustrationMap = {
 };
 
 export const statIllustrationMap = {
-  'Projects Delivered': 'projects',
-  'Happy Clients': 'clients',
+  'Live Projects': 'projects',
+  'Businesses Served': 'clients',
   'Services Offered': 'services',
-  'Support Available': 'support',
+  Consultation: 'support',
 };
 
 export const processIllustrationMap = {
@@ -261,6 +261,6 @@ export const processIllustrationMap = {
 export const whyIllustrationMap = {
   'Quality Assured': 'quality',
   'On-Time Delivery': 'delivery',
-  'Best Pricing': 'pricing',
+  'Fair Pricing': 'pricing',
   'Dedicated Support': 'support',
 };

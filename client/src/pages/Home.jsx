@@ -8,6 +8,7 @@ import HomeProcess from '../components/HomeProcess';
 import WhyUs from '../components/WhyUs';
 import HomeTestimonials from '../components/HomeTestimonials';
 import HomeFAQ from '../components/HomeFAQ';
+import HomePricing from '../components/HomePricing';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -19,7 +20,6 @@ export default function Home() {
         title="Websoftify | Software Development Company - Websites, Apps, CRM, AI"
         description="Websoftify is a leading software development company in India. We build websites, mobile apps, CRM, ERP, AI chatbots, cloud call center, and complete digital solutions."
         keywords="websoftify, software development company, website development, mobile app, CRM, ERP, AI chatbot, call center software india"
-        canonical="https://websoftify.com/"
       />
       <Navbar />
       <main>
@@ -31,6 +31,7 @@ export default function Home() {
         <HomeProcess />
         <WhyUs />
         <HomeTestimonials />
+        <HomePricing />
         <HomeFAQ />
         <Contact />
       </main>

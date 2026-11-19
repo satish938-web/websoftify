@@ -10,11 +10,11 @@ const features = [
   {
     name: 'delivery',
     title: 'On-Time Delivery',
-    description: 'We respect deadlines and deliver projects on schedule, every time.',
+    description: 'We agree a clear timeline up front and keep you updated every week.',
   },
   {
     name: 'pricing',
-    title: 'Best Pricing',
+    title: 'Fair Pricing',
     description: 'Competitive rates with no hidden costs. Get maximum value for your investment.',
   },
   {

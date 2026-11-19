@@ -3,6 +3,7 @@ import { HiMail, HiPhone, HiCheckCircle, HiX } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { allServiceNames } from '../data/services';
 import { contactInfo, contactFormEndpoint } from '../data/contact';
+import { trackEvent } from '../utils/analytics';
 
 const serviceOptions = [...allServiceNames, 'Other'];
 
@@ -93,6 +94,7 @@ export default function Contact() {
       const result = getSubmitStatus(data);
 
       if (result.type === 'success') {
+        trackEvent('generate_lead', { form: 'contact', service: form.service || 'Not specified' });
         setForm({ name: '', email: '', phone: '', service: '', message: '' });
         setStatus({ type: '', message: '' });
         setShowSuccessPopup(true);
@@ -126,8 +128,8 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
             <div className="bg-gray-900 rounded-2xl p-5 sm:p-6 border border-gray-800 sm:col-span-2 lg:col-span-1">
-              <h3 className="font-bold mb-1 theme-heading">{contactInfo.name}</h3>
-              <p className="text-gray-400 text-sm">Founder, Websoftify</p>
+              <h3 className="font-bold mb-1 theme-heading">{contactInfo.companyName}</h3>
+              <p className="text-gray-400 text-sm">Software Development Company · Delhi NCR</p>
             </div>
 
             <div className="bg-gray-900 rounded-2xl p-5 sm:p-6 border border-gray-800">
@@ -142,21 +144,11 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-900 rounded-2xl p-5 sm:p-6 border border-gray-800">
-              <HiMail className="text-gray-300 text-2xl mb-3" />
-              <h3 className="font-bold mb-1 theme-heading">Personal Email</h3>
-              <a
-                href={`mailto:${contactInfo.personalEmail}`}
-                className="text-gray-400 hover:text-primary-400 transition-colors break-all"
-              >
-                {contactInfo.personalEmail}
-              </a>
-            </div>
-
-            <div className="bg-gray-900 rounded-2xl p-5 sm:p-6 border border-gray-800">
               <HiPhone className="text-gray-300 text-2xl mb-3" />
               <h3 className="font-bold mb-1 theme-heading">Call Us</h3>
               <a
                 href={contactInfo.phoneHref}
+                onClick={() => trackEvent('phone_click', { location: 'contact_section' })}
                 className="text-gray-400 hover:text-primary-400 transition-colors"
               >
                 {contactInfo.phoneDisplay}
@@ -170,6 +162,7 @@ export default function Contact() {
                 href={contactInfo.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('whatsapp_click', { location: 'contact_section' })}
                 className="text-gray-400 hover:text-green-400 transition-colors"
               >
                 {contactInfo.phoneDisplay}

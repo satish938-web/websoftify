@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from 'reac
 import Logo from './Logo';
 import BrandName from './BrandName';
 import { contactInfo } from '../data/contact';
+import { trackEvent } from '../utils/analytics';
 
 const footerLinks = {
   Development: [
@@ -72,7 +73,6 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Get In Touch</h4>
             <ul className="space-y-2 text-sm">
-              <li className="text-white">{contactInfo.name}</li>
               <li>
                 <a
                   href={`mailto:${contactInfo.businessEmail}`}
@@ -82,7 +82,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={contactInfo.phoneHref} className="hover:text-white transition-colors">
+                <a
+                  href={contactInfo.phoneHref}
+                  onClick={() => trackEvent('phone_click', { location: 'footer' })}
+                  className="hover:text-white transition-colors"
+                >
                   {contactInfo.phoneDisplay}
                 </a>
               </li>
@@ -91,6 +95,7 @@ export default function Footer() {
                   href={contactInfo.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('whatsapp_click', { location: 'footer' })}
                   className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <FaWhatsapp /> WhatsApp

@@ -1,26 +1,6 @@
 import { HiStar } from 'react-icons/hi';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const testimonials = [
-  {
-    name: 'VFC Loans Team',
-    role: 'Finance & HR Platform',
-    text: 'Websoftify built our complete CRM with HR, calling, and WhatsApp automation. Everything works smoothly in one system — exactly what we needed.',
-    rating: 5,
-  },
-  {
-    name: 'Admire Holidays',
-    role: 'Travel & CRM Solutions',
-    text: 'From our holiday website to the custom CRM — professional work, fast delivery, and great communication throughout the project.',
-    rating: 5,
-  },
-  {
-    name: 'Travel N World',
-    role: 'Travel Agency Website',
-    text: 'Our travel portal with admin panel looks amazing and handles bookings perfectly. The team understood our business from day one.',
-    rating: 5,
-  },
-];
+import { testimonials } from '../data/testimonials';
 
 function TestimonialCard({ item, index }) {
   const { ref, visible } = useScrollAnimation(0.08);

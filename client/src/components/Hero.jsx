@@ -8,24 +8,17 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import BrandName from './BrandName';
 import { services } from '../data/services';
+import { siteStats, liveProjectCount, clientCount, serviceCount } from '../data/siteStats';
 
 const featuredCount = 8;
 
-const serviceStats = [
-  '24/7 active',
-  'Live project',
-  '99.9% uptime',
-  '50+ agents',
-  '100+ clients',
-  'Ready to deploy',
-];
-
-function getServiceStat(title, index) {
-  if (/AI|Chatbot|WhatsApp|Agent/i.test(title)) return '24/7 active';
-  if (/CRM|ERP|Task/i.test(title)) return '100+ clients';
-  if (/Call|IVR|Dialer/i.test(title)) return '50+ agents';
-  if (/Host|SSL|Maintenance|Support/i.test(title)) return '99.9% uptime';
-  return serviceStats[index % serviceStats.length];
+/** A plain description of the service type, not a performance claim. */
+function getServiceStat(title) {
+  if (/AI|Chatbot|WhatsApp|Agent/i.test(title)) return 'AI automation';
+  if (/CRM|ERP|Task|GCC/i.test(title)) return 'Business software';
+  if (/Call|IVR|Dialer/i.test(title)) return 'Calling & telephony';
+  if (/Host|SSL|Maintenance|Support/i.test(title)) return 'Hosting & care';
+  return 'Custom build';
 }
 
 function MiniChart() {
@@ -69,7 +62,7 @@ function HeroVisual() {
 
   const current = services[active];
   const Icon = current.icon;
-  const stat = getServiceStat(current.title, active);
+  const stat = getServiceStat(current.title);
 
   return (
     <div className="hero-visual-scene hidden md:block">
@@ -100,9 +93,9 @@ function HeroVisual() {
 
             <div className="hero-metrics hero-metrics-premium">
               {[
-                { label: 'Projects', value: '100+' },
-                { label: 'Clients', value: '50+' },
-                { label: 'Uptime', value: '99.9%' },
+                { label: 'Projects', value: String(liveProjectCount) },
+                { label: 'Clients', value: String(clientCount) },
+                { label: 'Services', value: String(serviceCount) },
               ].map((m) => (
                 <div key={m.label} className="hero-metric hero-metric-premium">
                   <p className="hero-metric-value">{m.value}</p>
@@ -114,9 +107,8 @@ function HeroVisual() {
             <div className="hero-chart-wrap hero-chart-premium">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-[10px] hero-dash-label uppercase tracking-[0.15em] font-semibold">
-                  Revenue Growth
+                  Sample Report
                 </p>
-                <p className="text-xs text-primary-400 font-bold">+127%</p>
               </div>
               <MiniChart />
             </div>
@@ -183,7 +175,8 @@ export default function Hero() {
         <div className="hero-noise" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8 sm:py-12 lg:py-16">
+        {/* grid-cols-1 = minmax(0,1fr): stops wide children stretching the column past a phone screen */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8 sm:py-12 lg:py-16">
           <div className="hero-content anim-fade-up anim-visible">
             <div className="hero-badge hero-badge-premium">
               <HiLightningBolt className="text-gray-300" />
@@ -211,12 +204,7 @@ export default function Hero() {
             </div>
 
             <div className="hero-stats hero-stats-premium grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              {[
-                { value: '100+', label: 'Projects' },
-                { value: '50+', label: 'Clients' },
-                { value: '24/7', label: 'Support' },
-                { value: '5★', label: 'Rated' },
-              ].map((s) => (
+              {siteStats.map((s) => (
                 <div key={s.label} className="hero-stat hero-stat-premium">
                   <p className="hero-stat-value">{s.value}</p>
                   <p className="hero-stat-label">{s.label}</p>
@@ -226,7 +214,7 @@ export default function Hero() {
 
             <div className="hero-trust hero-trust-premium max-w-full text-center sm:text-left">
               <HiShieldCheck className="text-gray-300 shrink-0" />
-              <span className="text-sm sm:text-base">Trusted by startups, SMEs & enterprises across India</span>
+              <span className="text-sm sm:text-base">Trusted by growing businesses in Delhi NCR and beyond</span>
             </div>
           </div>
 

@@ -74,7 +74,7 @@ export default function LegalPageLayout({
                 <div className="bg-gray-900/80 rounded-2xl border border-gray-800 p-6">
                   <h3 className="font-bold theme-heading mb-2">Need help?</h3>
                   <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                    Contact {contactInfo.name} for any questions about these policies.
+                    Contact us for any questions about these policies.
                   </p>
                   <Link to="/contact" className="hero-btn-primary inline-flex text-sm px-5 py-2.5">
                     Contact Us

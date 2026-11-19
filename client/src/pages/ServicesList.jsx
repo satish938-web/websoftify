@@ -37,7 +37,6 @@ export default function ServicesList() {
         title="All Services | Websoftify - Software Development Company"
         description="Explore all Websoftify services — AI chatbots, CRM, ERP, web apps, mobile apps, call center, hosting, SEO, and more."
         keywords="websoftify services, software services, web development, CRM, ERP, AI, call center"
-        canonical="https://websoftify.com/services"
       />
       <Navbar />
       <main className="pt-24 pb-20 relative">

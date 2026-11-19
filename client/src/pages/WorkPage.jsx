@@ -51,7 +51,6 @@ export default function WorkPage() {
         title="Our Work | Websoftify - Client Projects & Portfolio"
         description="Explore Websoftify client work — CRM systems, company websites, HR & operations software, calling, and WhatsApp automation."
         keywords="websoftify portfolio, client projects, company websites, CRM projects india"
-        canonical="https://websoftify.com/work"
       />
       <Navbar />
       <main className="pt-24 pb-20 relative">

@@ -12,6 +12,8 @@ import { HiGlobeAlt, HiUserGroup } from 'react-icons/hi';
  * - tech: Technologies used
  * - year: Delivery year
  * - url: Live website/app link (optional — leave '' if private)
+ * - image: Screenshot in public/portfolio/, 800x500 JPG (optional — without it the card
+ *          shows an illustration). Never screenshot a client's private data.
  */
 
 export const workCategories = [
@@ -43,6 +45,7 @@ export const portfolioProjects = [
     tech: ['React', 'Node.js', 'MongoDB', 'WhatsApp API', 'Call Masking'],
     year: '2026',
     url: 'https://hrms.vfcloans.com/employee-dashboard',
+    image: '/portfolio/vfc-loans-crm.jpg',
   },
   {
     id: 'project-crm-admire',
@@ -115,6 +118,7 @@ export const portfolioProjects = [
     tech: ['React', 'Tailwind CSS', 'SEO'],
     year: '2026',
     url: 'https://www.vfcloans.com/',
+    image: '/portfolio/vfc-loans-website.jpg',
   },
   {
     id: 'project-6',

@@ -10,7 +10,6 @@ export default function ContactPage() {
         title="Contact Us | Websoftify"
         description="Contact Websoftify for websites, mobile apps, CRM, ERP, AI chatbots, and custom software. Get a free consultation today."
         keywords="contact websoftify, software development quote, hire developers india"
-        canonical="https://websoftify.com/contact"
       />
       <Navbar />
       <main>

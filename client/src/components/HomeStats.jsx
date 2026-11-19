@@ -1,12 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { SectionIllustration, statIllustrationMap } from './SectionIllustrations';
-
-const stats = [
-  { value: '100+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Happy Clients' },
-  { value: '25+', label: 'Services Offered' },
-  { value: '24/7', label: 'Support Available' },
-];
+import { SectionIllustration } from './SectionIllustrations';
+import { siteStats as stats } from '../data/siteStats';
 
 function StatCard({ stat, index }) {
   const { ref, visible } = useScrollAnimation(0.1);
@@ -16,7 +10,7 @@ function StatCard({ stat, index }) {
       className={`text-center p-6 rounded-2xl bg-gray-900/80 border border-gray-800 anim-fade-up ${visible ? 'anim-visible' : 'anim-hidden'}`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <SectionIllustration type="stat" name={statIllustrationMap[stat.label]} variant="stat" />
+      <SectionIllustration type="stat" name={stat.illustration} variant="stat" />
       <p className="text-3xl md:text-4xl font-extrabold gradient-text mb-1">{stat.value}</p>
       <p className="text-sm text-gray-400">{stat.label}</p>
     </div>

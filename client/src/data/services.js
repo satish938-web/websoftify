@@ -88,7 +88,7 @@ export const services = [
   {
     icon: HiSupport,
     title: 'Maintenance & Support',
-    description: 'Regular updates, backups, security patches, and 24/7 technical support.',
+    description: 'Regular updates, backups, security patches, and ongoing technical support.',
     color: 'icon-bw',
   },
   {
